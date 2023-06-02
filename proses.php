@@ -235,28 +235,39 @@ if (isset($_POST['login'])) {
     
     $Berat = $_POST['berat'];
     $Harga = $_POST['harga'];
-    $Stok = $_POST['stok'];
+    $Karung = $_POST['karung'];
 
-    $q = "INSERT INTO db_huut (berat, harga, stok, status, tgl_input) VALUES ('$Berat', '$Harga', '$Stok', 1, NOW())";
+    $q = "SELECT COUNT(*) AS cnt FROM db_huut WHERE berat = '$Berat'";
     $sql = mysqli_query($conn, $q);
+    $row = mysqli_fetch_assoc($sql);
+    $CountHuut = $row['cnt'];
 
-    if ($sql) {
-        $qLog = "INSERT INTO db_log_history (kategori, jenis, karung, berat, log, tgl_input) VALUES ('HUUT', '-', '$Stok', '$Berat', 'INSERT', NOW())";
-        $sqlLog = mysqli_query($conn, $qLog);
-
-        if ($sqlLog) {
-            $_SESSION['SuccessMessage'] = "Data Berhasil Ditembahkan";
-            header('location:list-huut.php');
-            exit;
+    if ($CountHuut > 0) {
+        $_SESSION['ErrorMessage'] = "Data sudah ada";
+        header('location:input-master-huut.php');
+        exit;
+    } else {
+        $q = "INSERT INTO db_huut (berat, harga, karung, status, tgl_input) VALUES ('$Berat', '$Harga', '$Karung', 1, NOW())";
+        $sql = mysqli_query($conn, $q);
+    
+        if ($sql) {
+            $qLog = "INSERT INTO db_log_history (kategori, jenis, karung, berat, log, tgl_input) VALUES ('HUUT', '-', '$Karung', '$Berat', 'INSERT', NOW())";
+            $sqlLog = mysqli_query($conn, $qLog);
+    
+            if ($sqlLog) {
+                $_SESSION['SuccessMessage'] = "Data Berhasil Ditembahkan";
+                header('location:list-huut.php');
+                exit;
+            } else {
+                $_SESSION['ErrorMessage'] = "Data Gagal Ditambahkan";
+                header('location:list-huut.php');
+                exit;
+            }
         } else {
             $_SESSION['ErrorMessage'] = "Data Gagal Ditambahkan";
             header('location:list-huut.php');
             exit;
         }
-    } else {
-        $_SESSION['ErrorMessage'] = "Data Gagal Ditambahkan";
-        header('location:list-huut.php');
-        exit;
     }
 
 } else if (isset($_POST["update_master_huut"])) {

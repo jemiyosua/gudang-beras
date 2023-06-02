@@ -419,8 +419,8 @@ $CountHuut = $row['cnt_huut'];
                                         
                                         <tr>
                                             <th scope="row"><?= $No; ?></th>
-                                            <td style="color:<?= $ColorText ?>"><?= $KarungHuut ?></td>
-                                            <td style="font-weight:bold"><?= $BeratHuut ?></td>
+                                            <td style="color:<?= $ColorText ?>"><?= $BeratHuut ?></td>
+                                            <td style="font-weight:bold"><?= $KarungHuut ?></td>
                                             <td><?= $Date ?></td>
                                             <td><?= $Jam ?></td>
                                             <td><?= $vLog ?></td>

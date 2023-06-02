@@ -17,6 +17,34 @@ include('sidebar.php');
 
 require_once 'koneksi.php';
 
+if (isset($_SESSION['SuccessMessage'])) {
+    echo "<script>
+    Swal.fire({
+        allowEnterKey: false,
+        allowOutsideClick: false,
+        icon: 'success',
+        title: 'Good Job :)',
+        text: '".$_SESSION['SuccessMessage']."'
+    }).then(function() {
+        window.location.href='input-master-huut.php';
+    });
+    </script>";
+    unset($_SESSION['SuccessMessage']);
+} else if (isset($_SESSION['ErrorMessage'])) {
+    echo "<script>
+    Swal.fire({
+        allowEnterKey: false,
+        allowOutsideClick: false,
+        icon: 'error',
+        title: 'Sorry :(',
+        text: '".$_SESSION['ErrorMessage']."'
+    }).then(function() {
+        window.location.href='input-master-huut.php';
+    });
+    </script>";
+    unset($_SESSION['ErrorMessage']);
+}
+
 ?>
 
 <main id="main" class="main">
@@ -56,9 +84,9 @@ require_once 'koneksi.php';
                         </div>
 
                         <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">Stok</label>
+                            <label for="inputNumber" class="col-sm-2 col-form-label">Karung</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" name="stok" required>
+                                <input type="number" class="form-control" name="karung" required>
                             </div>
                         </div>
 
