@@ -22,7 +22,7 @@ if (isset($_POST['login'])) {
 
     if ($CountLogin > 0) { // sukses
         $_SESSION['role'] = $Role;
-        header('location:index.php');
+        header('location:list-beras.php');
         exit;
     } else { // gagal
         $_SESSION['ErrorMessage'] = "Your Username or Password Are Wrong. Please Try Again.";

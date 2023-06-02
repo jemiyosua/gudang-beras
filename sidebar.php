@@ -8,12 +8,12 @@ session_start();
 
 	<ul class="sidebar-nav" id="sidebar-nav">
 
-		<li class="nav-item">
+		<!-- <li class="nav-item">
 			<a class="nav-link collapsed" href="index.php">
 			<i class="bi bi-grid"></i>
 				<span>Dashboard</span>
 			</a>
-		</li>
+		</li> -->
 
 		<li class="nav-heading">Pengadaan & Data Stok</li>
 
