@@ -112,10 +112,18 @@ $CountHuut = $row['cnt_huut'];
 										<h6><?= $CountHuut ?> Karung</h6>
 									</div>
 								</div>
-                                <hr>
-                                <div class="d-grid gap-2">
-                                    <a href="input-master-huut.php" type="button" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i> Tambah Stok Huut</a>
-                                </div>
+                                <?php
+                                
+                                if ($_SESSION['role'] == "admin") {
+                                    ?>
+                                    <hr>
+                                    <div class="d-grid gap-2">
+                                        <a href="input-master-huut.php" type="button" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i> Tambah Stok Huut</a>
+                                    </div>
+                                    <?php
+                                }
+                                
+                                ?>
 							</div>
 						</div>
 					</div>
@@ -136,7 +144,15 @@ $CountHuut = $row['cnt_huut'];
                                             <th scope="col">BERAT (Kg)</th>
                                             <th scope="col">JUMLAH KARUNG</th>
                                             <th scope="col">HARGA</th>
-                                            <th scope="col">ACTION</th>
+                                            <?php
+                                            
+                                            if ($_SESSION['role'] == "admin") {
+                                                ?>
+                                                <th scope="col">ACTION</th>
+                                                <?php
+                                            }
+                                            
+                                            ?>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -184,10 +200,18 @@ $CountHuut = $row['cnt_huut'];
                                                     <td style="font-weight:bold"><?= $BeratHuut . " " . $KeteranganHabis ?></td>
                                                     <td style="color:<?= $ColorText ?>"><?= $KarungHuut ?></td>
                                                     <td>Rp <?= number_format($HargaHuut) ?></td>
-                                                    <td colspan=2>
-                                                        <a href="update-master-huut.php?id=<?= $Id ?>"><span class="badge rounded-pill text-bg-info">Edit Data</span></a>
-                                                        <a href="proses.php?function=delete-master-huut&id=<?= $Id ?>" onclick="return checkDelete()"><span class="badge rounded-pill text-bg-danger">Delete Data</span></a>
-                                                    </td>
+                                                    <?php
+                                                    
+                                                    if ($_SESSION['role'] == "admin") {
+                                                        ?>
+                                                        <td colspan=2>
+                                                            <a href="update-master-huut.php?id=<?= $Id ?>"><span class="badge rounded-pill text-bg-info">Edit Data</span></a>
+                                                            <a href="proses.php?function=delete-master-huut&id=<?= $Id ?>" onclick="return checkDelete()"><span class="badge rounded-pill text-bg-danger">Delete Data</span></a>
+                                                        </td>
+                                                        <?php
+                                                    }
+
+                                                    ?>
                                                 </tr>
             
                                                 <?php

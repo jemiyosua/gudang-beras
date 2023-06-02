@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -160,13 +166,40 @@
 
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                 <img src="assets/img/admin.png" alt="Profile" class="rounded-circle">
-                <span class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
+                <?php
+                
+                if ($_SESSION['role'] == "admin") {
+                    ?>
+                    <span class="d-none d-md-block dropdown-toggle ps-2">ADMIN</span>
+                    <?php
+                } else if ($_SESSION['role'] == "user") {
+                    ?>
+                    <span class="d-none d-md-block dropdown-toggle ps-2">USER</span>
+                    <?php
+                    
+                }
+                
+                ?>
             </a>
             <!-- End Profile Iamge Icon -->
 
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                 <li class="dropdown-header">
-                <h6>Admin</h6>
+                    <?php
+                    
+                    if ($_SESSION['role'] == "admin") {
+                        ?>
+                        <h6>ADMIN</h6>
+                        <?php
+                    } else if ($_SESSION['role'] == "user") {
+                        ?>
+                        <h6>USER</h6>
+                        <?php
+                        
+                    }
+                    
+                    ?>
+                
                 <!-- <span>Web Designer</span> -->
                 </li>
                 <li>
