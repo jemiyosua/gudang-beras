@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 02, 2023 at 09:54 AM
+-- Generation Time: Jun 02, 2023 at 08:43 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.2
 
@@ -43,11 +43,11 @@ CREATE TABLE `db_beras` (
 --
 
 INSERT INTO `db_beras` (`id`, `jenis`, `kategori`, `karung`, `berat`, `status`, `harga`, `tgl_input`) VALUES
-(2, 'IR', 'Non Wangi', 20, 25, 1, 10600, '2023-05-20 20:32:50'),
 (3, 'Kongga', 'Non Wangi', 50, 25, 1, 10600, '2023-05-20 20:33:39'),
 (4, 'Ciherang', 'Non Wangi', 20, 25, 1, 10600, '2023-05-20 20:45:21'),
 (5, 'Mawar', 'Wangi', 40, 25, 1, 12000, '2023-05-20 23:48:59'),
-(11, 'Gaga', 'Wangi', 50, 25, 1, 11000, '2023-05-21 12:45:31');
+(11, 'Gaga', 'Wangi', 50, 25, 1, 11000, '2023-05-21 12:45:31'),
+(13, 'IR', 'Non Wangi', 100, 25, 1, 10600, '2023-06-03 01:27:47');
 
 -- --------------------------------------------------------
 
@@ -116,7 +116,6 @@ CREATE TABLE `db_huut` (
 --
 
 INSERT INTO `db_huut` (`id`, `berat`, `harga`, `karung`, `status`, `tgl_input`) VALUES
-(1, 100, 25000, 5, 1, '2023-05-21 23:06:18'),
 (3, 500, 50000, 10, 1, '2023-05-21 23:28:04'),
 (4, 300, 15000, 10, 1, '2023-06-02 09:57:55'),
 (5, 200, 50000, 10, 1, '2023-06-02 09:58:49');
@@ -205,7 +204,15 @@ INSERT INTO `db_log_history` (`id`, `kategori`, `jenis`, `karung`, `berat`, `log
 (42, 'BERAS', 'Kongga', 50, 25, 'UPDATE', '2023-06-01 18:05:48'),
 (43, 'PADI', 'Mawar', 10, 60, 'UPDATE', '2023-06-01 18:15:18'),
 (44, 'HUUT', '-', 10, 300, 'INSERT', '2023-06-02 09:57:55'),
-(45, 'HUUT', '-', 10, 200, 'INSERT', '2023-06-02 09:58:49');
+(45, 'HUUT', '-', 10, 200, 'INSERT', '2023-06-02 09:58:49'),
+(46, 'BERAS', 'IR', 20, 25, 'DELETE', '2023-06-03 01:20:40'),
+(47, 'BERAS', 'IR', 100, 25, 'INSERT', '2023-06-03 01:20:54'),
+(48, 'BERAS', 'IR', 100, 25, 'INSERT', '2023-06-03 01:27:47'),
+(49, 'BERAS', 'IR', 100, 25, 'UPDATE', '2023-06-03 01:29:45'),
+(50, 'BERAS', 'IR', 100, 25, 'UPDATE', '2023-06-03 01:29:54'),
+(51, 'PADI', 'Kongga', 10, 40, 'UPDATE', '2023-06-03 01:38:31'),
+(52, 'HUUT', '-', 5, 100, 'UPDATE', '2023-06-03 01:40:20'),
+(53, 'HUUT', '-', 5, 100, 'DELETE', '2023-06-03 01:40:26');
 
 -- --------------------------------------------------------
 
@@ -338,7 +345,7 @@ ALTER TABLE `db_transaksi`
 -- AUTO_INCREMENT for table `db_beras`
 --
 ALTER TABLE `db_beras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `db_beras_harga_kilogram`
@@ -368,7 +375,7 @@ ALTER TABLE `db_login`
 -- AUTO_INCREMENT for table `db_log_history`
 --
 ALTER TABLE `db_log_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `db_padi`

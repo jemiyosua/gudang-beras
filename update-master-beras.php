@@ -26,6 +26,7 @@ $JenisBerasDB = $row["jenis"];
 $KarungBeras = $row["karung"];
 $Berat = $row["berat"];
 $Status = $row["status"];
+$Harga = $row["harga"];
 
 ?>
 
@@ -87,6 +88,13 @@ $Status = $row["status"];
                             <label for="inputNumber" class="col-sm-2 col-form-label">Berat Beras</label>
                             <div class="col-sm-10">
                                 <input type="number" class="form-control" name="berat" value="<?= $Berat; ?>" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="inputNumber" class="col-sm-2 col-form-label">Harga Beras (/Kg)</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" name="harga" value="<?= $Harga; ?>" required>
                             </div>
                         </div>
 

@@ -24,7 +24,7 @@ $sql = mysqli_query($conn, $q);
 $row = mysqli_fetch_assoc($sql);
 $Berat = $row["berat"];
 $Harga = $row["harga"];
-$Stok = $row["stok"];
+$Karung = $row["karung"];
 $Status = $row["status"];
 
 ?>
@@ -67,9 +67,9 @@ $Status = $row["status"];
                         </div>
 
                         <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">Stok</label>
+                            <label for="inputNumber" class="col-sm-2 col-form-label">Karung</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" name="stok" value="<?= $Stok; ?>" required>
+                                <input type="number" class="form-control" name="karung" value="<?= $Karung; ?>" required>
                             </div>
                         </div>
 

@@ -91,6 +91,13 @@ require_once 'koneksi.php';
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="inputNumber" class="col-sm-2 col-form-label">Harga (/Kg)</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" name="harga" required>
+                            </div>
+                        </div>
+
                         <div class="row-mb-3">
                             <div class="d-flex flex-row-reverse">
                                 <button type="submit" class="btn btn-success" name="input_master_beras">Submit</button>
